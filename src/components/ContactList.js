@@ -11,8 +11,7 @@ export class ContactList extends Component {
         this.state = {
             ValueSearch: "",
         }
-        this.props.OnRefresh();
-        console.log(this.props)
+        this.props.OnRefresh();     
     }
     onInputChange = (event) => {
         const value = event.target.value;
