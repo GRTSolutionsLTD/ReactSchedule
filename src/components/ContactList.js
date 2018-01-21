@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { BrowserRouter, Link } from 'react-router-dom'
 import { Route } from 'react-router'
 import { Contact } from './Contact'
-
+//add remark
 export class ContactList extends Component {
     constructor(props) {
         super(props);
