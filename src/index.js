@@ -11,7 +11,7 @@ import ContactReducer from './reducers/ContactReducer';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './components/home.css'
-import 'react-clock/dist/Clock.css'
+
 
 //require('../node-modules/react-clock/dist/entry.css')
 const store = createStore(ContactReducer, applyMiddleware(thunkMiddleware, logger));
