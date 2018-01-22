@@ -17,7 +17,7 @@ export class ContactList extends Component {
         const value = event.target.value;
         this.state.ValueSearch = value;
         this.props.OnRefresh();
-        this.props.onSearch(this.state.ValueSearch);
+       // this.props.onSearch(this.state.ValueSearch);
     }
 
     render() {
@@ -26,16 +26,22 @@ export class ContactList extends Component {
             <div >
                 <Link to={`/Add/${null}`} >Add</Link>
                 <br /><br /><br />
-                <input className="search" type="text" placeholder="search" onChange={this.onInputChange} value={this.state.ValueSearch} />
+                {/* <input className="search" type="text" placeholder="search" onChange={this.onInputChange} value={this.state.ValueSearch} /> */}
+                <div className="header">History</div>
                 <div className="table-users">
                     <table >
                         <tbody>
                             <tr>
-                                <th>firstName</th>
+                                {/* <th>firstName</th>
                                 <th>lastName</th>
                                 <th>image</th>
                                 <th>email</th>
                                 <th>phone</th>
+                                <th>update</th>
+                                <th>delete</th>  */}
+                                <th>in</th>
+                                <th>out</th>
+                                <th>total</th>
                                 <th>update</th>
                                 <th>delete</th> 
                             </tr>

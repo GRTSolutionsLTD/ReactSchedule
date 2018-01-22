@@ -28,7 +28,7 @@ export function OnRefreshContact() {
 }
 export const onLoad = () => (
     dispatch => {
-        return axios.get('contacts.json')
+        return axios.get('hoursReport.json')
             .then(res => {
                 dispatch({
                     type: LOAD_CONTACT,

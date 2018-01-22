@@ -26,8 +26,8 @@ class App extends Component {
                             render={(props) => <Home {...props} data={this.props.data}></Home>} />
                         <Route path="/ContactList"
                             render={(props) => <ContactList onDelete={this.props.delete} onSearch={this.props.Search} data={this.props.data} FilterList={this.props.FilterList} OnRefresh={this.props.Refresh}></ContactList>} />
-                        <Route path="/Add/:id"
-                            render={(props) => <Add {...props} onAdd={this.props.add} onUpdate={this.props.update} data={this.props.data} ></Add>} />
+                         <Route path="/Add/:id"
+                            render={(props) => <Add {...props} onAdd={this.props.add} onUpdate={this.props.update} data={this.props.data} ></Add>} /> 
                     </div>
                 </BrowserRouter>
             </div>

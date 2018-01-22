@@ -10,7 +10,7 @@ export class Add extends React.Component {
         this.state = {
          
             contact: {
-                id: "",
+               /* id: "",
                 name: "",
                 lastName: "",
                 avatar: "",
@@ -21,25 +21,34 @@ export class Add extends React.Component {
                 phone: "",
                 address: "",
                 birthday: "",
-                notes: ""
+                notes: ""*/
+                id: "",
+                in: "",
+                out: "",
+                total:""
             },
             redirect: false,
             currentContact: null
           
            
         }
-        console.log(this.props.location)
+       // console.log(this.props.location)
 
-        debugger;
-        console.log(this.props);
+      //  debugger;
+       // console.log(this.props);
         if (this.props.match.params.id != "null") {
             this.state.currentContact = this.props.data.filter(c => c.id == this.props.match.params.id);
-            this.state.contact.name = this.state.currentContact[0].name;
+        /*    this.state.contact.name = this.state.currentContact[0].name;
             this.state.contact.lastName = this.state.currentContact[0].lastName;
             this.state.contact.avatar = this.state.currentContact[0].avatar;
             this.state.contact.email = this.state.currentContact[0].email;
             this.state.contact.phone = this.state.currentContact[0].phone;
             this.state.contact.id = this.state.currentContact[0].id;
+        */
+         this.state.contact.total = this.state.currentContact[0].total;
+        this.state.contact.out = this.state.currentContact[0].out;
+        this.state.contact.in = this.state.currentContact[0].in;
+        this.state.contact.id = this.state.currentContact[0].id;
 
         }
         this.onInputChange = this.onInputChange.bind(this);
@@ -69,42 +78,35 @@ export class Add extends React.Component {
         return (
             <div>
                 <form className="add">
-                    <p className="titleAdd">Add Contact</p>
+                    <p className="titleAdd">Add New Record</p>
                     <input  
-                        id="name"
+                        id="in"
                         onChange={this.onInputChange}
-                        placeholder="first name"
-                        value={this.state.contact.name}
+                        placeholder="in"
+                        value={this.state.contact.in}
                         className="ss"/>
                     <br />
                     <input  
-                        id="lastName"
+                        id="out"
                         onChange={this.onInputChange}
-                        placeholder="lastName"
-                        value={this.state.contact.lastName}
+                        placeholder="out"
+                        value={this.state.contact.out}
                         className="ss"/>
                     <br />
-                    <input  
-                        id="avatar"
+                    {/* <input  
+                        id="total"
                         onChange={this.onInputChange}
-                        placeholder="img"
-                        value={this.state.contact.avatar}
+                        placeholder="total"
+                        value={this.state.contact.total}
+                        className="ss" /> */}
+                        <input  
+                        id="total"
+                        onChange={this.onInputChange}
+                        placeholder="total"
+                        value={this.state.contact.total}
                         className="ss" />
+                        
                     <br />
-                    <input type="email"
-                        id="email"
-                        onChange={this.onInputChange}
-                        placeholder="e-mail"
-                        value={this.state.contact.email}
-                        className="ss" />
-                    <br />
-                    <input type="phone"
-                        id="phone"
-                        onChange={this.onInputChange}
-                        placeholder="phone"
-                        value={this.state.contact.phone}
-                        className="ss" />
-
 
                     <button class="panel-footer" type="submit" className="sumbit" onClick={this.onSave} >Save</button>
                 </form>

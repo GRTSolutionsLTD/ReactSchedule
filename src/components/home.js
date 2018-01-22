@@ -20,22 +20,37 @@ export class Home extends Component {
     
     componentDidMount() {
         setInterval(
-          () => this.setState({ date: new Date() }),
-          1000
+          () => this.setState({ date: new Date() }), 1000
         );
       }
     render() {
         return (
             <div  >
-                <div className='home' >
+                
+                <div className='home'>
+                <div className='welcome'>Hello Yaeli </div>
                     <div className='text'>iTime</div>
                     <br />
                     {/* <div className='number' >{this.props.data.length}</div> */}
-                    
-                    <div id="clock" className="clock"><Clock value={this.state.date}/></div>
+                   
+                    <div id="clock" className="clock" ><Clock value={this.state.date}/></div> 
+
+                    <div className="center-wrap-left">
+                        <div className="button">                       
+                          <Link to="/ContactList">OUT <span className="shift"></span></Link>
+                            <div className="mask"></div>
+                        </div>
+                    </div>
+
+                    <div className="center-wrap-right">
+                        <div className="button">                        
+                        <Link to="/ContactList">IN<span className="shift"></span></Link>
+                            <div className="mask"></div>
+                        </div>
+                    </div>
                     <div className="center-wrap">
                         <div className="button">                        
-                            <Link to="/ContactList">Schedule Reports <span className="shift"></span></Link>
+                            <Link to="/ContactList">Schedule Reports<span className="shift"></span></Link>
                             <div className="mask"></div>
                         </div>
                     </div>

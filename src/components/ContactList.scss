@@ -58,10 +58,19 @@ body {
 .header {
     /*background-color: darken($baseColor, 5%);*/
     color: white;
-    font-size: 1.5em;
+    font-size: 3.5em ;
     padding: 1rem;
     text-align: center;
     text-transform: uppercase;
+    
+}
+.listheader{
+    color: white;
+    font-size: 3.5em ;
+    padding: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    margin-left: 45%;
 }
 
 img {
@@ -175,7 +184,15 @@ table {
     .header {
         background-color: transparent;
         color: lighten($baseColor, 60%);
-        font-size: 2em;
+        font-size: 3.5em !important;
+        font-weight: 700;
+        padding: 0;
+        text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+    }
+    .listheader {
+        background-color: transparent;
+        color: lighten($baseColor, 60%);
+        font-size: 3.5em !important;
         font-weight: 700;
         padding: 0;
         text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
