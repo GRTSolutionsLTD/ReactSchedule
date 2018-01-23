@@ -17,8 +17,10 @@ export class ContactList extends Component {
         const value = event.target.value;
         this.state.ValueSearch = value;
         this.props.OnRefresh();
-       // this.props.onSearch(this.state.ValueSearch);
+        this.props.onSearch(this.state.ValueSearch);
     }
+
+    //datepicker bootstrap 
 
     render() {
         console.log(this);
@@ -27,6 +29,7 @@ export class ContactList extends Component {
                 <Link to={`/Add/${null}`} >Add</Link>
                 <br /><br /><br />
                 {/* <input className="search" type="text" placeholder="search" onChange={this.onInputChange} value={this.state.ValueSearch} /> */}
+               
                 <div className="header">History</div>
                 <div className="table-users">
                     <table >
