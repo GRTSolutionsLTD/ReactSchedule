@@ -18,18 +18,19 @@ import style from './ContactList.css'
 export class ContactList extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            
-            startDate:""
-         //  selectedDate: new Date().toISOString()
+        this.state = {       
+            startDate:"",
+           selectedDate: new Date().toISOString(),  
         };
        
       //  this.onChange = this.onChange.bind(this);
         this.props.OnRefresh();  
         this.startDateHandler = this.startDateHandler.bind(this); 
-   
-    }           
+     //   var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+       // "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
         
+    }
+
 
     onInputChange = (event) => {
         const value = event.target.value;
@@ -38,18 +39,21 @@ export class ContactList extends React.Component {
         this.props.onSearch(this.state.ValueSearch); //--original 
 
     }
-
     startDateHandler(event) {
-       
-
-        console.log(String(event._d).slice(4,15)); 
         
-        // this.setState({startDate:String(event._d).slice(4,15)}); 
-        
+        console.log(String(event._d).slice(4,15));        
+         this.setState({startDate:String(event._d).slice(4,15)});        
         }
 
-        handleSelect(date){
-            console.log(date); // change table by search
+        handleSelect(event){
+        var monthNames = {Jan: 1 , Feb: 2, Mar: 3, Apr:4, May:5, Jun:6,
+                Jul:7, Aug:8, Sep:9, Oct:10, Nov:11, Dec:12 };
+       //console.log(String(event._d).slice(4,15));        
+       
+       var monthName=String(event._d).slice(4,7);
+       console.log(monthName);
+       var numMonth=monthNames.monthName; // to convert enum to number!!! 
+       this.setState(numMonth);        
         }
     render() {
         console.log(this);
@@ -82,18 +86,13 @@ export class ContactList extends React.Component {
                     <table >
                         <tbody>
                             <tr>
-                                {/* <th>firstName</th>
-                                <th>lastName</th>
-                                <th>image</th>
-                                <th>email</th>
-                                <th>phone</th>
-                                <th>update</th>
-                                <th>delete</th>  */}
-                                <th>in</th>
-                                <th>out</th>
-                                <th>total</th>
-                                <th>update</th>
-                                <th>delete</th> 
+                                <th> In<br/><i className="em em-arrow_heading_down"></i></th>
+                                <th>Out<br/><i className="em em-arrow_heading_up"></i></th>
+                                <th>Date<br/><i className="em em-date"></i></th> 
+                                <th>TotalTime<br/><i className="em em-alarm_clock"></i></th>
+                                {/* <th>Update</th>
+                                <th>Delete</th> */}
+                                <th>Feedback<br/><i className="em em-ballot_box_with_check"></i></th>
                             </tr>
                             {this.props.FilterList.map(user => <Contact key={user.id} onDelete={this.props.onDelete} {...user} id={user.id}></Contact>)}
                         </tbody>

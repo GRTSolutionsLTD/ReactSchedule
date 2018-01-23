@@ -36,9 +36,6 @@ export class Layout extends React.Component {
                     </div>
                     <div className={"navbar-collapse " + navClass} id="bs-example-navbar-collapse-1">
                         <ul className="nav navbar-nav">
-
-                         
-                           
                             <li>
                                 <Link to="/" onClick={this.toggleCollapse}>Home</Link>
                             </li>
