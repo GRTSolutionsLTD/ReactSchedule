@@ -13,7 +13,6 @@ body {
 }
 
 
-
 .set-section {
     position: fixed;
     margin-top: 5px;
@@ -37,9 +36,16 @@ body {
         margin-left: 15px;
     }
 
+    .FormGroup{
+        text-align: center;
+    }
+
+
     .form-control {
-        margin-top: 2px !important;
-        margin-bottom: 2px !important;
+        margin-top: 2px ;//!important;
+      //   width: 50%;
+      //  left: 40%;
+      //  padding-left: 60%;
     }
 
     .required-sign {
@@ -87,11 +93,12 @@ img {
     margin: 1em auto;
     overflow: hidden;
     width: 800px;
+    position: relative !important;
 }
 
 table {
     width: 100%;
-
+    position: relative !important;
     td, th {
         color: darken($baseColor, 10%);
         padding: $padding;
@@ -125,6 +132,8 @@ table {
 }
 
 @media screen and (max-width: 700px) {
+    
+
     table, tr, td {
         display: block;
     }
@@ -243,9 +252,28 @@ table {
         padding: 0;
     }
 
-    .table-users {
+    
+ 
+       }
+    
+       .table-users {
+        border: none;
+         box-shadow: none;
+         overflow: visible;
+         position: relative !important;
+             
+ 
+            
+     }
+      /* .table-users {
         border: none;
         box-shadow: none;
         overflow: visible;
-    }
-}
+        position: relative !important;
+        margin: auto;
+        }
+        .table{
+            position: relative !important;
+            margin: auto;
+        }
+*/

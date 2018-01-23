@@ -17,9 +17,10 @@ body {
     color: #8c8989 !important; }
   .set-section .div-contact-wrapper {
     margin-left: 15px; }
+  .set-section .FormGroup {
+    text-align: center; }
   .set-section .form-control {
-    margin-top: 2px !important;
-    margin-bottom: 2px !important; }
+    margin-top: 2px; }
   .set-section .required-sign {
     margin-left: -13px;
     display: inline-block !important;
@@ -57,10 +58,12 @@ img {
   max-width: calc(100% - 2em);
   margin: 1em auto;
   overflow: hidden;
-  width: 800px; }
+  width: 800px;
+  position: relative !important; }
 
 table {
-  width: 100%; }
+  width: 100%;
+  position: relative !important; }
   table td, table th {
     color: #2b686e;
     padding: 10px; }
@@ -158,8 +161,23 @@ table {
     border-radius: 10px;
     box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
     margin: 0.5rem 0;
-    padding: 0; }
-  .table-users {
-    border: none;
-    box-shadow: none;
-    overflow: visible; } }
+    padding: 0; } }
+
+.table-users {
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+  position: relative !important; }
+
+/* .table-users {
+        border: none;
+        box-shadow: none;
+        overflow: visible;
+        position: relative !important;
+        margin: auto;
+        }
+        .table{
+            position: relative !important;
+            margin: auto;
+        }
+*/
