@@ -4,14 +4,6 @@ import { connect } from 'react-redux';
 import { BrowserRouter, Link } from 'react-router-dom';
 import { Route } from 'react-router';
 import { Contact } from './Contact';
-// Import Datepicker
-// import DatePicker from "react-bootstrap-date-picker";
-// Import Bootstrap components
-//import FormGroup from 'react-bootstrap/lib/FormGroup';
-//import ControlLabel from 'react-bootstrap/lib/ControlLabel';
-//import HelpBlock from 'react-bootstrap/lib/HelpBlock';
-// import Calendar from 'rc-calendar';
-// import { Calendar } from 'react-date-range';
 import { date_picker } from './mydatepicker';
 import { Calendar } from 'react-date-range';
 import style from './ContactList.css'
@@ -21,16 +13,19 @@ export class ContactList extends React.Component {
         this.state = {       
             startDate:"",
            selectedDate: new Date().toISOString(),  
+           selectedItems: [],
+           saved:props.FilterList,
         };
-       
       //  this.onChange = this.onChange.bind(this);
         this.props.OnRefresh();  
-        this.startDateHandler = this.startDateHandler.bind(this); 
-     //   var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-       // "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
-        
+        this.startDateHandler = this.startDateHandler.bind(this);      
+        this.handleSelect = this.handleSelect.bind(this); 
+        //  this.componentDidMount();
+        //  this.componentWillMount();
     }
-
+    componentWillMount(){
+        this.setState({selectedItems:this.props.FilterList});
+    } 
 
     onInputChange = (event) => {
         const value = event.target.value;
@@ -46,16 +41,29 @@ export class ContactList extends React.Component {
         }
 
         handleSelect(event){
-        var monthNames = {Jan: 1 , Feb: 2, Mar: 3, Apr:4, May:5, Jun:6,
-                Jul:7, Aug:8, Sep:9, Oct:10, Nov:11, Dec:12 };
-       //console.log(String(event._d).slice(4,15));        
-       
-       var monthName=String(event._d).slice(4,7);
-       console.log(monthName);
-       var numMonth=monthNames.monthName; // to convert enum to number!!! 
-       this.setState(numMonth);        
+           // debugger;
+        this.setState({selectedItems:this.state.saved},function(){  //callback solution
+            var monthNameS=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];    
+            var monthName=String(event._d).slice(4,7); //Jan
+        //   console.log(monthName);
+            var numMonth=monthNameS.indexOf(monthName)+1; //jan=1
+            if(numMonth<10){ var monthstring='0'+String(numMonth);}
+            else{var monthstring=String(numMonth);}
+            this.setState({startDate:monthstring});      
+                var selectedI=[];
+                this.state.selectedItems.forEach(element => {
+                    //debugger;
+                    if(element.date.slice(3,5)==monthstring)
+                    { selectedI.push(element)}
+                    
+                });
+                
+           this.setState({selectedItems:selectedI});
+        });
+
         }
-    render() {
+   
+        render() {
         console.log(this);
         return (
 
@@ -94,7 +102,7 @@ export class ContactList extends React.Component {
                                 <th>Delete</th> */}
                                 <th>Feedback<br/><i className="em em-ballot_box_with_check"></i></th>
                             </tr>
-                            {this.props.FilterList.map(user => <Contact key={user.id} onDelete={this.props.onDelete} {...user} id={user.id}></Contact>)}
+                            {this.state.selectedItems.map(user => <Contact key={user.id} onDelete={this.props.onDelete} {...user} id={user.id}></Contact>)}
                         </tbody>
                     </table>
                 </div>
