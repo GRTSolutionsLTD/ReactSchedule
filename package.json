@@ -15,6 +15,7 @@
     "react-clock": "^2.2.0",
     "react-date-range": "^0.9.4",
     "react-dom": "^15.6.2",
+    "react-popup": "^0.9.2",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.13",

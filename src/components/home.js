@@ -12,10 +12,11 @@ export class Home extends Component {
         this.state = {
             isIn: true,
             date: new Date(),
+            timeIn:'',
+            timeOut:'',
         };
         this.handleSelect = this.handleSelect.bind(this); 
         this.entryfunc = this.entryfunc.bind(this); 
-
     }
     
     componentDidMount() {
@@ -26,12 +27,15 @@ export class Home extends Component {
     entryfunc() {
         alert("You have successfully logged out");
         this.setState({isIn:true});
+        this.setState({timeOut:String(this.state.date).slice(16,24)})
+      //  debugger;
 
     }     
     handleSelect() {
         alert("You have successfully logged in");
         this.setState({isIn:false});
-        //this.setState({isIn:false} );
+       this.setState({timeIn:String(this.state.date).slice(16,24)})
+    
     }     
     
     render() {
@@ -40,7 +44,7 @@ export class Home extends Component {
         return (
             <div  >                
                 <div className='home'>
-                <div className='welcome'>Welcom! <br/> Ready To For Your Day??</div>
+                <div className='welcome'>Welcom Back! <br/> Have A Wonderfull Day! </div>
                     <div className='text'>iTime</div>
                     <br />
                     {/* <div className='number' >{this.props.data.length}</div> */}
@@ -50,13 +54,15 @@ export class Home extends Component {
                     <div className="center-wrap-left">                        
                          <div className="button">
                          <button onClick={this.entryfunc} disabled={this.state.isIn}>CHECK OUT </button>  
-                         </div>                 
+                         </div>        
+                         <div className='textleft'>checked out at: {this.state.timeOut}</div>  
                     </div>
 
                     <div className="center-wrap-right">
                         <div className="button">                        
                         <button onClick={this.handleSelect} disabled={!this.state.isIn}> CHECK IN</button>                            
                         </div>
+                        <div className="textright">checked in at: {this.state.timeIn} </div>
                     </div>
                     <div className="center-wrap">
                         <div className="button">                        

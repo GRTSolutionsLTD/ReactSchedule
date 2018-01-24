@@ -22,7 +22,7 @@ export class ContactList extends React.Component {
         this.handleSelect = this.handleSelect.bind(this); 
         //  this.componentDidMount();
         //  this.componentWillMount();
-    }
+    }   
     componentWillMount(){
         this.setState({selectedItems:this.props.FilterList});
     } 

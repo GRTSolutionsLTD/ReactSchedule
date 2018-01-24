@@ -48,7 +48,7 @@ body {
 
 .button {
     
-    top:100%;
+    top:90%;
     position: absolute;
     display: block;
     background: none center center no-repeat;
@@ -148,6 +148,22 @@ img {
     position: absolute;
     color: #3a1010;
     font-size: 80px;
+}
+.textright{
+    position: relative;
+    top: 150%;
+    left: calc(75% - 125px);
+    width: 80px;
+    height: 50px;
+    color: red;
+}
+.textleft{
+    position: relative;
+    top: 150%;
+    //right: calc(75% - 125px);
+    width: 120px;
+    height: 50px;
+    color: red;
 }
 .home {
     font-family: David;
