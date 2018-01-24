@@ -42,9 +42,9 @@ export class Layout extends React.Component {
                             <li>
                                 <Link to="/ContactList" onClick={this.toggleCollapse}>Schedule Reports</Link>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link to={`/Add/${null}`} onClick={this.toggleCollapse}>Add</Link>
-                            </li>
+                            </li> */}
 
                          
 
