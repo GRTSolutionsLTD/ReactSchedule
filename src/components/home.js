@@ -25,14 +25,21 @@ export class Home extends Component {
     }
     
     entryfunc() {
-        alert("You have successfully logged out");
+        if(String(this.state.date).slice(16,18)>16){
+        alert("Good afternoon! You have successfully logged out");}
+        else{ alert(" You have successfully logged out. \n Attention! it's still working time !!");}
+        //update list 
+        
         this.setState({isIn:true});
         this.setState({timeOut:String(this.state.date).slice(16,24)})
       //  debugger;
 
     }     
     handleSelect() {
-        alert("You have successfully logged in");
+        if(String(this.state.date).slice(16,18)>12){
+        alert("Good afternoon! You have successfully logged in");}
+        else{alert("Good Morning! You have successfully logged in");}
+        //add to list 
         this.setState({isIn:false});
        this.setState({timeIn:String(this.state.date).slice(16,24)})
     

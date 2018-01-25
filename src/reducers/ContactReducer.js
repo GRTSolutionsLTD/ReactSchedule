@@ -1,10 +1,26 @@
 function update(state, payload) {
-  //  debugger;
+   //debugger;
     console.log(state, payload)
     return state.id !== payload.id ? state : payload;
 }
 const reducer = (state = { data: [], FilterList: [] }, action) => {
     switch (action.type) {
+        
+        case 'ADD_RECORD': {
+        return{ 
+                data: [...state.data, action.payload],
+                FilterList: [...state.FilterList, action.payload]
+         };
+          }
+        
+          case 'UPDATE_RECORD': {
+            return {
+                data: [...state.data.map((state) => update(state, action.payload))],
+                FilterList: [...state.FilterList.map((state) => update(state, action.payload))]
+            };
+        }
+        
+        
         case 'LOAD_CONTACT':
             return { data: action.data, FilterList: action.data };
 
@@ -30,8 +46,8 @@ const reducer = (state = { data: [], FilterList: [] }, action) => {
         }
 
        case 'SEARCH_CONTACT': {
-            //var lower = action.payload.toLowerCase();
-            //var uper = action.payload.toUpperCase();
+            var lower = action.payload.toLowerCase();
+            var uper = action.payload.toUpperCase();
             return { ...state, FilterList: state.FilterList.filter(c => c.name.toLowerCase().substr(0, action.payload.length) == action.payload.toLowerCase())};
             
         }

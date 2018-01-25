@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux';
-import { onLoad } from './actions/contactAction'
+import { onLoad, OnAddRecord, OnUpdateRecord } from './actions/contactAction'
 import { OnAddContact, OnUpdateContact, deleteContact, OnSearchContact, OnRefreshContact } from './actions/contactAction'
 import { BrowserRouter, Route } from 'react-router-dom'
 import { Home } from './components/home';
@@ -15,10 +15,9 @@ class App extends Component {
         this.props.onLoad();
     }
     render() {
-       // console.log(this)
+       //console.log(this)
         return (
-            <div>
-                 
+            <div>                
                 <BrowserRouter>
                     <div>
                         <Layout />
@@ -40,13 +39,13 @@ function mapStateToProps(store, ownProps) {
         FilterList: store.FilterList
     };
 }
-
 function mapDispatchToProps(dispatch) {
     return {
+
         delete: (id) => dispatch(deleteContact(id)),
         onLoad: () => dispatch(onLoad()),
-        add: (contact) => dispatch(OnAddContact(contact)),
-        update: (contact) => dispatch(OnUpdateContact(contact)),
+        add: (contact) => dispatch(OnAddRecord(contact)),
+        update: (contact) => dispatch(OnUpdateRecord(contact)),
         Search: (value) => dispatch(OnSearchContact(value)),
         Refresh: () => dispatch(OnRefreshContact())
     };

@@ -1,13 +1,26 @@
 
 import fetch from 'isomorphic-fetch'
 import * as axios from 'axios'
+// for schedule app 
+export const ADD_RECORD = 'ADD_RECORD';
+export const UPDATE_RECORD = 'UPDATE_RECORD';
 
-export const LOAD_CONTACT = 'LOAD_CONTACT'
+export const LOAD_CONTACT = 'LOAD_CONTACT';
 export const DELETE_CONTACT = 'DELETE_CONTACT';
 export const ADD_CONTACT = 'ADD_CONTACT';
 export const UPDATE_CONTACT = 'UPDATE_CONTACT';
 export const SEARCH_CONTACT = 'SEARCH_CONTACT';
 export const REFRESH_CONTACT = 'REFRESH_CONTACT';
+
+
+export function OnAddRecord(record) {
+    return { type: ADD_RECORD, payload: record };
+}
+export function OnUpdateRecord(record) {
+    return { type: UPDATE_RECORD, payload: record };
+}
+
+
 
 export function OnAddContact(contact) {
     return { type: ADD_CONTACT, payload: contact };
