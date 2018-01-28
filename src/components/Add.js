@@ -27,6 +27,7 @@ export class Add extends React.Component {
                 out: "",
                 total:""
             },
+            
             redirect: false,
             currentContact: null
           

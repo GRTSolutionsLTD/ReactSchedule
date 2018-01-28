@@ -1,11 +1,16 @@
 function update(state, payload) {
-   //debugger;
+   
     console.log(state, payload)
-    return state.id !== payload.id ? state : payload;
+    return state.date !== payload.date ? state : payload;
 }
 const reducer = (state = { data: [], FilterList: [] }, action) => {
     switch (action.type) {
         
+
+        case 'CHECK_CONTACT': {
+            return { ...state, FilterList: state.FilterList.filter(c => c.date == action.payload)};      
+
+        }
         case 'ADD_RECORD': {
         return{ 
                 data: [...state.data, action.payload],
@@ -43,6 +48,7 @@ const reducer = (state = { data: [], FilterList: [] }, action) => {
                 data: [...state.data.map((state) => update(state, action.payload))],
                 FilterList: [...state.FilterList.map((state) => update(state, action.payload))]
             };
+        
         }
 
        case 'SEARCH_CONTACT': {

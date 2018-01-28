@@ -9,7 +9,9 @@ export class Contact extends React.Component {
     }
 
     calcTotal(startTime,endTime){
-       
+       if(endTime==""){
+           return "";
+       }
         var a = startTime.split(':');
         var b = endTime.split(':');
         var hourA= a[0];
@@ -18,6 +20,7 @@ export class Contact extends React.Component {
         var minuteB=b[1];
         var totalhours=hourB-hourA;
         var totalminute=Math.abs(minuteA-minuteB);
+        if (totalminute<10){totalminute="0"+totalminute}
         var total =String(totalhours)  + ":" +String(totalminute);
         return total;
 
@@ -31,11 +34,12 @@ export class Contact extends React.Component {
       { return <i className="em em--1"></i>}
       else{
           return <i className="em em---1"></i>
-      }
-    }
+      } }
 
     render() {
         //var x = this.props.avatar;
+        
+
         var b = this.calcTotal(this.props.in,this.props.out);
         return (
             <tr>

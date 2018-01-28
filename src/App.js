@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux';
-import { onLoad, OnAddRecord, OnUpdateRecord } from './actions/contactAction'
+import { onLoad, OnAddRecord, OnUpdateRecord, OnCheckContact } from './actions/contactAction'
 import { OnAddContact, OnUpdateContact, deleteContact, OnSearchContact, OnRefreshContact } from './actions/contactAction'
 import { BrowserRouter, Route } from 'react-router-dom'
 import { Home } from './components/home';
@@ -22,11 +22,11 @@ class App extends Component {
                     <div>
                         <Layout />
                         <Route exact path="/"
-                            render={(props) => <Home {...props} data={this.props.data}></Home>} />
+                            render={(props) => <Home  {...props} data={this.props.data}  OnCheckContact={this.props.OnCheckContact} OnUpdateContact={this.props.OnUpdateContact} OnAddContact={this.props.OnAddContact}></Home>} />
                         <Route path="/ContactList"
-                            render={(props) => <ContactList onDelete={this.props.delete} onSearch={this.props.Search} data={this.props.data} FilterList={this.props.FilterList} OnRefresh={this.props.Refresh}></ContactList>} />
+                            render={(props) => <ContactList onDelete={this.props.delete}  onSearch={this.props.Search} data={this.props.data} FilterList={this.props.FilterList} OnRefresh={this.props.Refresh}></ContactList>} />
                          <Route path="/Add/:id"
-                            render={(props) => <Add {...props} onAdd={this.props.add} onUpdate={this.props.update} data={this.props.data} ></Add>} /> 
+                            render={(props) => <Add {...props} OnAddContact={this.props.OnAddContact} onUpdate={this.props.update} data={this.props.data} ></Add>} /> 
                     </div>
                 </BrowserRouter>
             </div>
@@ -44,10 +44,11 @@ function mapDispatchToProps(dispatch) {
 
         delete: (id) => dispatch(deleteContact(id)),
         onLoad: () => dispatch(onLoad()),
-        add: (contact) => dispatch(OnAddRecord(contact)),
-        update: (contact) => dispatch(OnUpdateRecord(contact)),
+        OnAddContact: (contact) => dispatch(OnAddContact(contact)),
+        OnUpdateContact: (contact) => dispatch(OnUpdateContact(contact)),
         Search: (value) => dispatch(OnSearchContact(value)),
-        Refresh: () => dispatch(OnRefreshContact())
+        Refresh: () => dispatch(OnRefreshContact()),
+        OnCheckContact: (date) => dispatch(OnCheckContact(date))
     };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(App);

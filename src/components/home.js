@@ -6,17 +6,29 @@ import { ContactList } from './ContactList'
 import style from './home.css'
 import Clock from 'react-clock';
 import 'react-clock/dist/Clock.css'
+import { Contact } from './Contact';
 export class Home extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            contact: {
+                 in: '',
+                 out: '',
+                 date:new Date()
+             },
             isIn: true,
             date: new Date(),
             timeIn:'',
             timeOut:'',
+            currentContact: null
         };
+
+      //  isIn= contact.in? true: false
         this.handleSelect = this.handleSelect.bind(this); 
         this.entryfunc = this.entryfunc.bind(this); 
+        this.isEnableFunction=this.isEnableFunction.bind(this);
+       console.log("hhhhhhhii"+this.props.OnCheckContact('28/01/2018'));
+        
     }
     
     componentDidMount() {
@@ -30,20 +42,45 @@ export class Home extends Component {
         else{ alert(" You have successfully logged out. \n Attention! it's still working time !!");}
         //update list 
         
+        this.state.isIn=true;
         this.setState({isIn:true});
-        this.setState({timeOut:String(this.state.date).slice(16,24)})
-      //  debugger;
+        this.setState({timeOut:String(this.state.date).slice(16,24)});
+        this.state.contact.out= String(this.state.date).slice(16,21);
+       
+        if(this.state.contact.in==='')
+        {
+            
+            this.state.contact.in=(this.props.data[this.props.data.length-1]).in;
+            this.state.contact.date=(this.props.data[this.props.data.length-1]).date;
+        }
+     
+        this.props.OnUpdateContact(this.state.contact);
+        this.isEnableFunction;
+    }
+    
 
-    }     
+    
     handleSelect() {
         if(String(this.state.date).slice(16,18)>12){
         alert("Good afternoon! You have successfully logged in");}
         else{alert("Good Morning! You have successfully logged in");}
         //add to list 
         this.setState({isIn:false});
-       this.setState({timeIn:String(this.state.date).slice(16,24)})
-    
-    }     
+        this.setState({timeIn:String(this.state.date).slice(16,24)}); // **not working
+        this.state.contact.in= String(this.state.date).slice(16,21);
+        this.state.contact.date="28/01/2018";
+       // debugger;
+       this.props.OnAddContact(this.state.contact);
+       this.isEnableFunction;
+       //this.setState({timeIn:String(this.state.date).slice(16,24)})
+
+
+        
+        }
+
+        isEnableFunction(){
+            this.state.isIn=!(((this.props.data[this.props.data.length-1]).in)!==null && ((this.props.data[this.props.data.length-1]).out) ===null);
+        }
     
     render() {
         const isIn = this.state.isIn;
@@ -60,14 +97,14 @@ export class Home extends Component {
 
                     <div className="center-wrap-left">                        
                          <div className="button">
-                         <button onClick={this.entryfunc} disabled={this.state.isIn}>CHECK OUT </button>  
+                         <button onClick={this.entryfunc} disabled={false}>CHECK OUT </button>  
                          </div>        
                          <div className='textleft'>checked out at: {this.state.timeOut}</div>  
                     </div>
 
                     <div className="center-wrap-right">
                         <div className="button">                        
-                        <button onClick={this.handleSelect} disabled={!this.state.isIn}> CHECK IN</button>                            
+                        <button onClick={this.handleSelect}  disabled={false}> CHECK IN</button>                            
                         </div>
                         <div className="textright">checked in at: {this.state.timeIn} </div>
                     </div>

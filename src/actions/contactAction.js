@@ -11,13 +11,10 @@ export const ADD_CONTACT = 'ADD_CONTACT';
 export const UPDATE_CONTACT = 'UPDATE_CONTACT';
 export const SEARCH_CONTACT = 'SEARCH_CONTACT';
 export const REFRESH_CONTACT = 'REFRESH_CONTACT';
+export const CHECK_CONTACT = 'CHECK_CONTACT';
 
-
-export function OnAddRecord(record) {
-    return { type: ADD_RECORD, payload: record };
-}
-export function OnUpdateRecord(record) {
-    return { type: UPDATE_RECORD, payload: record };
+export function OnCheckContact(date) {
+    return { type: CHECK_CONTACT, payload: date };
 }
 
 

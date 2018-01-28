@@ -20,7 +20,7 @@ export class ContactList extends React.Component {
 
         };
       //  this.onChange = this.onChange.bind(this);
-        this.props.OnRefresh();  
+     //   this.props.OnRefresh();  
         this.handleSelectMonth = this.handleSelectMonth.bind(this);      
      //   this.handleSelect = this.handleSelect.bind(this); 
         //  this.componentDidMount();
@@ -72,9 +72,9 @@ export class ContactList extends React.Component {
                 var monthName=String(event._d).slice(4,7); //month mm
                 var dayName= String(event._d).slice(8,10); 
                 var yearName= String(event._d).slice(11,15); 
-                console.log(monthName);
-                console.log(String(dayName));
-                console.log(String(yearName));
+              //  console.log(monthName);
+               // console.log(String(dayName));
+              //  console.log(String(yearName));
                 var numMonth=monthNameS.indexOf(monthName)+1; //jan=1
                 if(numMonth<10){ var monthstring='0'+String(numMonth);} //monthstring
                 else{var monthstring=String(numMonth);} 
@@ -97,14 +97,13 @@ export class ContactList extends React.Component {
         }
    
         render() {
-        console.log(this);
+       // console.log(this);
         return (
 
             <div >
-                <Link to={`/Add/${null}`} >Add</Link>
+              
                 <br /><br /><br />
-                {/* <input className="search" type="text" placeholder="search" onChange={this.onInputChange} value={this.state.ValueSearch} /> */}   
-                {/* <div className="header">History</div> */}
+
             <div className="col-lg-offset-5">
                 <Calendar
                     onInit={this.handleSelectMonth}
@@ -125,7 +124,7 @@ export class ContactList extends React.Component {
                                 <th>TotalTime<br/><i className="em em-alarm_clock"></i></th>
                                 <th>Feedback<br/><i className="em em-ballot_box_with_check"></i></th>
                             </tr>
-                            {this.state.selectedItems.map(user => <Contact key={user.id} onDelete={this.props.onDelete} {...user} id={user.id}></Contact>)}
+                            {this.state.selectedItems.map((user, i) => <Contact Key={i} onDelete={this.props.onDelete} {...user} ></Contact>)}
                         </tbody>
                     </table>
                 </div>
