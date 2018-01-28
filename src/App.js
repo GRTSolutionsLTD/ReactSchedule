@@ -22,7 +22,7 @@ class App extends Component {
                     <div>
                         <Layout />
                         <Route exact path="/"
-                            render={(props) => <Home  {...props} data={this.props.data}  OnCheckContact={this.props.OnCheckContact} OnUpdateContact={this.props.OnUpdateContact} OnAddContact={this.props.OnAddContact}></Home>} />
+                            render={(props) => <Home  {...props} data={this.props.data} OnCheckContact={this.props.OnCheckContact} OnUpdateContact={this.props.OnUpdateContact} OnAddContact={this.props.OnAddContact}></Home>} />
                         <Route path="/ContactList"
                             render={(props) => <ContactList onDelete={this.props.delete}  onSearch={this.props.Search} data={this.props.data} FilterList={this.props.FilterList} OnRefresh={this.props.Refresh}></ContactList>} />
                          <Route path="/Add/:id"
@@ -48,7 +48,7 @@ function mapDispatchToProps(dispatch) {
         OnUpdateContact: (contact) => dispatch(OnUpdateContact(contact)),
         Search: (value) => dispatch(OnSearchContact(value)),
         Refresh: () => dispatch(OnRefreshContact()),
-        OnCheckContact: (date) => dispatch(OnCheckContact(date))
+        OnCheckContact: (date) => dispatch(OnCheckContact(date)),
     };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(App);

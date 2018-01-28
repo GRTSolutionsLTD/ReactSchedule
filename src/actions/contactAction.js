@@ -17,8 +17,6 @@ export function OnCheckContact(date) {
     return { type: CHECK_CONTACT, payload: date };
 }
 
-
-
 export function OnAddContact(contact) {
     return { type: ADD_CONTACT, payload: contact };
 }

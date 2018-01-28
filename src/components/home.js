@@ -27,8 +27,11 @@ export class Home extends Component {
         this.handleSelect = this.handleSelect.bind(this); 
         this.entryfunc = this.entryfunc.bind(this); 
         this.isEnableFunction=this.isEnableFunction.bind(this);
-       console.log("hhhhhhhii"+this.props.OnCheckContact('28/01/2018'));
         
+        console.log("hhhhhhhii",this.props.OnCheckContact('28/01/2018'));
+        console.log("the last record data",this.props.data[this.props.data.length-1]);
+        if(this.props.data[this.props.data.length-1].out==='')  //// ** wont work because out is null
+           this.setState({isIn:false})
     }
     
     componentDidMount() {
