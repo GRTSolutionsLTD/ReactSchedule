@@ -1,14 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import { connect } from 'react-redux';
-import { deleteContact } from './../actions/contactAction';
+import { deleteRecord } from './../actions/contactAction';
 
 export class Contact extends React.Component {
     constructor(props) {
         super(props);
     }
 
-    calcTotal(startTime,endTime){
+    calcTotal(startTime,endTime){ // calculate work time per day
        if(endTime==""){
            return "";
        }
@@ -26,34 +26,24 @@ export class Contact extends React.Component {
 
     }
 
-    isLessHours(b){
+    isLessHours(b){ // set feedback emoji according to total time of work  
         var a = b.split(':');
         var hour= a[0];
         if(hour<9)
-      //  { return "Attention!!"}
       { return <i className="em em--1"></i>}
       else{
           return <i className="em em---1"></i>
       } }
 
     render() {
-        //var x = this.props.avatar;
-        
-
         var b = this.calcTotal(this.props.in,this.props.out);
         return (
             <tr>
                 <td> {this.props.in}</td>
                 <td> {this.props.out}</td>
                 <td> {this.props.date}</td> 
-                {/* task 1 */}
                 <td> {b}</td>               
-                {/* task2 */}
-                <td> {this.isLessHours(b)}</td> 
-                {/* <td ><Link to={`/Add/${this.props.id}`}>Update</Link></td>
-                <td><button  onClick={() => this.props.onDelete(this.props.id)}>delete</button></td> */}
-                {/* <td> <i className="em em--1"></i></td>  */}
-
+                <td> {this.isLessHours(b)}</td>              
             </tr>
         );
        

@@ -13,7 +13,6 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import './components/home.css'
 
 
-//require('../node-modules/react-clock/dist/entry.css')
 const store = createStore(ContactReducer, applyMiddleware(thunkMiddleware, logger));
 
 ReactDOM.render(<Provider store={store}>

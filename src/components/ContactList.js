@@ -17,103 +17,49 @@ export class ContactList extends React.Component {
            selectedDate: new Date().toISOString(),  
            selectedItems: [],
            saved:props.FilterList,
-
-        };
-      //  this.onChange = this.onChange.bind(this);
-     //   this.props.OnRefresh();  
-        this.handleSelectMonth = this.handleSelectMonth.bind(this);      
-     //   this.handleSelect = this.handleSelect.bind(this); 
-        //  this.componentDidMount();
-        //  this.componentWillMount();
+        };    
+        this.handleSelectMonth = this.handleSelectMonth.bind(this);        
     }   
+
         componentWillMount(){
         this.setState({selectedItems:this.props.FilterList});
-    } 
+        } 
 
-  /*  onInputChange = (event) => {
-        const value = event.target.value;
-        this.state.ValueSearch = value;
-        this.props.OnRefresh();
-        this.props.onSearch(this.state.ValueSearch); //--original 
-
-    }*/
-     /*   startDateHandler(event) {        
-         console.log(String(event._d).slice(4,15));        
-         this.setState({startDate:String(event._d).slice(4,15)});        
-        }*/
-
-        /*handleSelect(event){
-           // debugger;
-        this.setState({selectedItems:this.state.saved},function(){  //callback solution
-            var monthNameS=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];    
-            var monthName=String(event._d).slice(4,7); //month mm
-           console.log(String(event._d));
-            var numMonth=monthNameS.indexOf(monthName)+1; //jan=1
-            if(numMonth<10){ var monthstring='0'+String(numMonth);} //monthstring
-            else{var monthstring=String(numMonth);} 
-            this.setState({startDate:monthstring}); 
-
-                var selectedI=[];
-                this.state.selectedItems.forEach(element => {
-                    //debugger;
-                    if(element.date.slice(3,5)==monthstring)
-                    { selectedI.push(element)}
-                    
-                });
-                
-           this.setState({selectedItems:selectedI});
-        });
-
-        }*/
-
-        handleSelectMonth(event){
+        // convert date format to dd/mm/yy
+        handleSelectMonth(event){ 
             this.setState({selectedItems:this.state.saved},function(){  //callback solution
                 var monthNameS=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];    
-                var monthName=String(event._d).slice(4,7); //month mm
+                var monthName=String(event._d).slice(4,7); // mm
                 var dayName= String(event._d).slice(8,10); 
                 var yearName= String(event._d).slice(11,15); 
-              //  console.log(monthName);
-               // console.log(String(dayName));
-              //  console.log(String(yearName));
-                var numMonth=monthNameS.indexOf(monthName)+1; //jan=1
-                if(numMonth<10){ var monthstring='0'+String(numMonth);} //monthstring
-                else{var monthstring=String(numMonth);} 
-                
-                
+                var numMonth=monthNameS.indexOf(monthName)+1; 
+                if(numMonth<10){ var month='0'+String(numMonth);} //month
+                else{var month=String(numMonth);}               
+                this.setState({startDate:month}); 
     
-                this.setState({startDate:monthstring}); 
-    
-                    var selectedI=[];
-                    this.state.selectedItems.forEach(element => {
-                        
-                        if(element.date.slice(3,5)==monthstring&& element.date.slice(0,2)==dayName &&element.date.slice(6,11)==yearName)
-                        { 
+                var selectedI=[];
+                this.state.selectedItems.forEach(element => {                      
+                if(element.date.slice(3,5)==month&& element.date.slice(0,2)==dayName &&element.date.slice(6,11)==yearName)
+                    { 
                             selectedI.push(element)}
                     });
                     
-               this.setState({selectedItems:selectedI});
+                this.setState({selectedItems:selectedI});
             });
     
         }
    
         render() {
-       // console.log(this);
         return (
-
-            <div >
-              
+            <div >     
                 <br /><br /><br />
-
             <div className="col-lg-offset-5">
                 <Calendar
                     onInit={this.handleSelectMonth}
-                    onChange={this.handleSelectMonth}
-                    
+                    onChange={this.handleSelectMonth}       
                 />
             </div>    
-                {/* <datepicker action={this.startDateHandler}></datepicker>
-                <datepicker action={this.startDateHandler}></datepicker> */}
-
+               
                 <div className="table-users" >
                     <table >
                         <tbody>
