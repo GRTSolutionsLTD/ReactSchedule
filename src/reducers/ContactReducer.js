@@ -1,7 +1,8 @@
 function update(state, payload) {
    
     console.log(state, payload)
-    return state.date !== payload.date ? state : payload;
+ // return state.date !== payload.date ? state : payload;
+  return state.date !== payload.date || state.in !==payload.in ? state : payload;
 }
 const reducer = (state = { data: [], FilterList: [] }, action) => {
     switch (action.type) {

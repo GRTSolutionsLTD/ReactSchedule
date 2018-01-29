@@ -11,23 +11,30 @@ import { ContactList } from './components/ContactList';
 import { Layout } from './components/Layout'
 
 class App extends Component {
-    componentWillMount() {
-        this.props.onLoad();
+    // componentWillMount() {
+   //      this.props.onLoad();
+    // }
+   componentDidMount(){
+       this.props.onLoad();
     }
     render() {
        //console.log(this)
+        debugger;
         return (
             <div>                
                 <BrowserRouter>
-                    <div>
-                        <Layout />
-                        <Route exact path="/"
-                            render={(props) => <Home  {...props} data={this.props.data} OnCheckContact={this.props.OnCheckContact} OnUpdateContact={this.props.OnUpdateContact} OnAddContact={this.props.OnAddContact}></Home>} />
-                        <Route path="/ContactList"
-                            render={(props) => <ContactList onDelete={this.props.delete}  onSearch={this.props.Search} data={this.props.data} FilterList={this.props.FilterList} OnRefresh={this.props.Refresh}></ContactList>} />
-                         <Route path="/Add/:id"
-                            render={(props) => <Add {...props} OnAddContact={this.props.OnAddContact} onUpdate={this.props.update} data={this.props.data} ></Add>} /> 
-                    </div>
+                {this.props.data.length>0?
+                                        <div>
+                                        <Layout />
+                                        <Route exact path="/"
+                                       
+                                            render={(props) => <Home  {...props} data={this.props.data} OnCheckContact={this.props.OnCheckContact} OnUpdateContact={this.props.OnUpdateContact} OnAddContact={this.props.OnAddContact}></Home>} />
+                                        <Route path="/ContactList"
+                                            render={(props) => <ContactList onDelete={this.props.delete}  onSearch={this.props.Search} data={this.props.data} FilterList={this.props.FilterList} OnRefresh={this.props.Refresh}></ContactList>} />
+                                         <Route path="/Add/:id"
+                                            render={(props) => <Add {...props} OnAddContact={this.props.OnAddContact} onUpdate={this.props.update} data={this.props.data} ></Add>} /> 
+                                    </div>:<div></div>}
+
                 </BrowserRouter>
             </div>
         );

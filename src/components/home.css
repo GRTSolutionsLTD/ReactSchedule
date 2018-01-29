@@ -86,7 +86,8 @@ body * {
   /* background-image: url('http://cuinine.com/img/codepen/savvy.jpg'); */ }
 
 .button:hover a {
-  color: #fff; }
+  color: #fff;
+  color: #9c9c9c; }
 
 .button:hover .mask {
   background: #fff;
