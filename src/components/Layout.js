@@ -40,7 +40,7 @@ export class Layout extends React.Component {
                                 <Link to="/" onClick={this.toggleCollapse}>Home</Link>
                             </li>
                             <li>
-                                <Link to="/ContactList" onClick={this.toggleCollapse}>Schedule Reports</Link>
+                                <Link to="/RecordList" onClick={this.toggleCollapse}>Schedule Reports</Link>
                             </li>
                         </ul>
 

@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter, Link } from 'react-router-dom'
 import { Route } from 'react-router'
-import { ContactList } from './ContactList'
+import { RecordList } from './RecordList'
 import style from './home.css'
 import Clock from 'react-clock';
 import 'react-clock/dist/Clock.css'
-import { Contact } from './Contact';
+import { Record } from './Record';
 export class Home extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            contact: {
+            record: {
                  in: '',
                  out: '',
                  date:new Date()
@@ -43,14 +43,14 @@ export class Home extends Component {
         //update list       
         this.setState({isCheckInPreesed:true}); //set checkOut Button disabled
         this.setState({timeOut:String(this.state.date).slice(16,24)});
-        this.state.contact.out= String(this.state.date).slice(16,21);    
-        if(this.state.contact.in==='')
+        this.state.record.out= String(this.state.date).slice(16,21);    
+        if(this.state.record.in==='')
         {
             
-            this.state.contact.in=(this.props.data[this.props.data.length-1]).in;
-            this.state.contact.date=(this.props.data[this.props.data.length-1]).date;
+            this.state.record.in=(this.props.data[this.props.data.length-1]).in;
+            this.state.record.date=(this.props.data[this.props.data.length-1]).date;
         }     
-        this.props.OnUpdateRecord(this.state.contact);
+        this.props.OnUpdateRecord(this.state.record);
     }
     
 
@@ -61,9 +61,9 @@ export class Home extends Component {
         else{alert("Good Morning! You have successfully logged in");}
         this.setState({isCheckInPreesed:false});  // //set checkIn Button disabled
         this.setState({timeIn:String(this.state.date).slice(16,24)});
-        this.state.contact.in= String(this.state.date).slice(16,21);
-        this.state.contact.date="29/01/2018";
-        this.props.OnAddRecord(this.state.contact);     
+        this.state.record.in= String(this.state.date).slice(16,21);
+        this.state.record.date="29/01/2018";
+        this.props.OnAddRecord(this.state.record);     
         }
 
     
@@ -94,7 +94,7 @@ export class Home extends Component {
                     </div>
                     <div className="center-wrap">
                         <div className="button">                        
-                            <Link to="/ContactList">Schedule Reports<span className="shift"></span></Link>
+                            <Link to="/RecordList">Schedule Reports<span className="shift"></span></Link>
                             <div className="mask"></div>
                         </div>
                     </div>

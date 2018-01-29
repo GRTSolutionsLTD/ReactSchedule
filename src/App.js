@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux';
-import { onLoad, OnAddRecord, OnUpdateRecord} from './actions/contactAction'
-import {   deleteRecord } from './actions/contactAction'
+import { onLoad, OnAddRecord, OnUpdateRecord} from './actions/RecordAction'
+import {   deleteRecord } from './actions/RecordAction'
 import { BrowserRouter, Route } from 'react-router-dom'
 import { Home } from './components/home';
-import { ContactList } from './components/ContactList';
+import { RecordList } from './components/RecordList';
 import { Layout } from './components/Layout'
 
 class App extends Component {
@@ -25,8 +25,8 @@ class App extends Component {
                                         <Layout />
                                         <Route exact path="/"                                       
                                             render={(props) => <Home  {...props} data={this.props.data}  OnUpdateRecord={this.props.OnUpdateRecord} OnAddRecord={this.props.OnAddRecord}></Home>} />
-                                        <Route path="/ContactList"
-                                            render={(props) => <ContactList onDelete={this.props.delete}   data={this.props.data} FilterList={this.props.FilterList} ></ContactList>} /> 
+                                        <Route path="/RecordList"
+                                            render={(props) => <RecordList onDelete={this.props.delete}   data={this.props.data} FilterList={this.props.FilterList} ></RecordList>} /> 
                                     </div>:<div></div>}
 
                 </BrowserRouter>
@@ -45,8 +45,8 @@ function mapDispatchToProps(dispatch) {
 
         delete: (id) => dispatch(deleteRecord(id)),
         onLoad: () => dispatch(onLoad()),
-        OnAddRecord: (contact) => dispatch(OnAddRecord(contact)),
-        OnUpdateRecord: (contact) => dispatch(OnUpdateRecord(contact)),            
+        OnAddRecord: (record) => dispatch(OnAddRecord(record)),
+        OnUpdateRecord: (record) => dispatch(OnUpdateRecord(record)),            
     };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(App);

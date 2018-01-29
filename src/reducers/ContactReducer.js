@@ -24,8 +24,8 @@ const reducer = (state = { data: [], FilterList: [] }, action) => {
 
         case 'DELETE_RECORD': {
             return {
-                ...state, data: state.data.filter(c => c.id !== action.contactId),
-                FilterList: state.FilterList.filter(c => c.id !== action.contactId)
+                ...state, data: state.data.filter(c => c.id !== action.recordId),
+                FilterList: state.FilterList.filter(c => c.id !== action.recordId)
             };
         }
 
