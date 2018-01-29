@@ -66,7 +66,9 @@ body {
     -webkit-transition: border 1s cubic-bezier(0.19,1,.22,1),color .6s cubic-bezier(0.19,1,.22,1);
     transition: border 1s cubic-bezier(0.19,1,.22,1), color .6s cubic-bezier(0.19,1,.22,1), background 5s cubic-bezier(0.19,1,.22,1);
 }
-
+  #unibutt:disabled{
+    color: rgba(204, 204, 204, 1);
+}
     .button a {
         color: #d36363;
         font-family: 'Varela Round';

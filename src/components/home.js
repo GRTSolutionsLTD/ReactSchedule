@@ -104,14 +104,14 @@ export class Home extends Component {
 
                     <div className="center-wrap-left">                        
                          <div className="button">
-                         <button onClick={this.entryfunc} disabled={isIn}>CHECK OUT </button>  
+                         <button id="unibutt" onClick={this.entryfunc} disabled={isIn}>CHECK OUT </button>  
                          </div>        
                          <div className='textleft'>checked out at: {this.state.timeOut}</div>  
                     </div>
 
                     <div className="center-wrap-right">
                         <div className="button" >                        
-                        <button onClick={this.handleSelect}  disabled={!isIn}> CHECK IN</button>                            
+                        <button id="unibutt" onClick={this.handleSelect}  disabled={!isIn}> CHECK IN</button>                            
                         </div>
                         <div className="textright">checked in at: {this.state.timeIn} </div>
                     </div>
