@@ -24,6 +24,7 @@ export class Home extends Component {
 
         this.CheckInPressed = this.CheckInPressed.bind(this); 
         this.CheckOutPressed = this.CheckOutPressed.bind(this); 
+        this.convertToDate = this.convertToDate.bind(this);
     }
     
     componentDidMount() {
@@ -52,7 +53,20 @@ export class Home extends Component {
         }     
         this.props.OnUpdateRecord(this.state.record);
     }
+
     
+    convertToDate(event){
+        var monthNameS=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];    
+        var monthName=event.slice(4,7); // ex. jan
+        var dayName= event.slice(8,10); 
+        var yearName= event.slice(11,15); 
+        var numMonth=monthNameS.indexOf(monthName)+1; 
+        console.log(numMonth);
+        if(numMonth<10){ var month='0'+String(numMonth);} //month
+        else{var month=String(numMonth);}     
+        var fullMonth=dayName+"/"+month+"/"+yearName;
+        return fullMonth; 
+    }
 
     
     CheckInPressed() {
@@ -61,11 +75,14 @@ export class Home extends Component {
         else{alert("Good Morning! You have successfully logged in");}
         this.setState({isCheckInPreesed:false});  // //set checkIn Button disabled
         this.setState({timeIn:String(this.state.date).slice(16,24)});
-        this.state.record.in= String(this.state.date).slice(16,21);
-        this.state.record.date="29/01/2018";
+        this.state.record.in= String(this.state.date).slice(16,21);   
+        var convertedDate=this.convertToDate(String(this.state.date));
+        this.state.record.date=convertedDate;
         this.props.OnAddRecord(this.state.record);     
         }
 
+
+        
     
     render() {
       const isCheckInPreesed = this.state.isCheckInPreesed;
