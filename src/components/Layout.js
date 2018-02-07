@@ -16,8 +16,10 @@ export class Layout extends React.Component {
     }
     button = {
         margin: '0.5%',
-        float: 'right'
+        float: 'right',
+        margin_top :'5%'
     };
+    
 
     render() {
         const { location } = this.props;
@@ -42,6 +44,10 @@ export class Layout extends React.Component {
                             <li>
                                 <Link to="/RecordList" onClick={this.toggleCollapse}>Schedule Reports</Link>
                             </li>
+                            <li>
+                                <Link to="/Options" onClick={this.toggleCollapse}>Options</Link>
+
+                             </li>
                         </ul>
 
                     </div>
