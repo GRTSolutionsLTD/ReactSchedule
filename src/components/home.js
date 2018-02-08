@@ -7,7 +7,7 @@ import style from './home.css'
 import Clock from 'react-clock';
 import 'react-clock/dist/Clock.css'
 import { Record } from './Record';
-import { Modal,Popover,Tooltip,Button, OverlayTrigger} from 'react-bootstrap';
+import { Modal,Popover,Tooltip,Button, OverlayTrigger,Badge} from 'react-bootstrap';
 export class Home extends Component {
     constructor(props) {
         super(props)
@@ -103,9 +103,6 @@ export class Home extends Component {
         this.props.OnAddRecord(this.state.record);     
     
         }
-
-
-        
     
     render() {
       const isCheckInPreesed = this.state.isCheckInPreesed;
@@ -127,9 +124,9 @@ export class Home extends Component {
 
                     <div id="clock" className="clock" ><Clock value={this.state.date}/></div> 
 
-                    <div className="center-wrap-left">                        
-                         <div className="button">
-                         <Button id="unibutt" onClick={this.handleShowClose} className="btn btn-primary" data-toggle="modal" data-target="#exampleModal" disabled={isCheckInPreesed}>CHECK OUT </Button>  
+                    {/* <div className="center-wrap-left">                         */}
+                         <div id="btn-check-out" className="button">
+                         <Button onClick={this.handleShowClose} className="btn btn-primary home-buttons" data-toggle="modal" data-target="#exampleModal" disabled={isCheckInPreesed}>CHECK OUT </Button>  
                         
                          <Modal show={this.state.showLeft} onHide={this.handleCloseLeft}>
                             <Modal.Header closeButton>
@@ -148,16 +145,16 @@ export class Home extends Component {
                         
                         
                          </div>        
-                         <div className='textleft'>checked out at: {this.state.timeOut}</div>  
+                         <div id="span-check-out"> <Badge id="check-badge" >checked out at: {this.state.timeOut}</Badge></div>  
                          
-                    </div>
+                    {/* </div> */}
 
                     
 
 
-                    <div className="center-wrap-right">
-                        <div className="button"  >                        
-                            <Button id="unibutt" onClick={this.handleShow} className="btn btn-primary"  disabled={!isCheckInPreesed}> CHECK IN </Button> 
+                    {/* <div className="center-wrap-right"> */}
+                        <div id="btn-check-in" className="button"  >                        
+                            <Button  onClick={this.handleShow} className="btn btn-primary home-buttons"  disabled={!isCheckInPreesed}> CHECK IN </Button> 
                             <Modal show={this.state.show} onHide={this.handleClose}>
                             <Modal.Header closeButton>
                                 <Modal.Title>Hello Worker </Modal.Title>
@@ -175,21 +172,13 @@ export class Home extends Component {
                         </div>
                         <div>                     
                     </div>                
-                        <div className="textright">checked in at: {this.state.timeIn} </div>
-                    </div>
-
-
-        
-
-
-                    <div className="center-wrap">
-                        <div className="button">                        
+                        <div id="span-check-in"><Badge id="check-badge">checked in at: {this.state.timeIn}</Badge></div>
+                    {/* </div> */}
+                        <div id="btn-schedule" className="button">                        
                             <Link to="/RecordList">Schedule Reports<span className="shift"></span></Link>
                             <div className="mask"></div>
-                        </div>
                     </div>
                 </div>
-
 
             </div>
 

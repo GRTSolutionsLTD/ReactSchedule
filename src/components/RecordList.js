@@ -53,7 +53,7 @@ export class RecordList extends React.Component {
         return (
             <div >     
                 <br /><br /><br />
-            <div className="col-lg-offset-5">
+            <div id="calender" className="col-lg-offset-5">
                 <Calendar
                     onInit={this.handleSelectMonth}
                     onChange={this.handleSelectMonth}       

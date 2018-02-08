@@ -39,8 +39,8 @@ export class Contact extends React.Component {
         var b = this.calcTotal(this.props.in,this.props.out);
         return (
             <tr>
-                <td> {this.props.in}</td>
-                <td> {this.props.out}</td>
+                <td > {this.props.in}</td>
+                <td > {this.props.out}</td>
                 <td> {this.props.date}</td> 
                 <td> {b}</td>               
                 <td> {this.isLessHours(b)}</td>              

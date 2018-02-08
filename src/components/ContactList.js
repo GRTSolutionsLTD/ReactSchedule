@@ -58,17 +58,18 @@ export class ContactList extends React.Component {
                     onInit={this.handleSelectMonth}
                     onChange={this.handleSelectMonth}       
                 />
-            </div>    
-               
-                <div className="table-users" >
+            </div>  
+
+             
+                <div className="table-users " >
                     <table >
                         <tbody>
                             <tr>
                                 <th> In<br/><i className="em em-arrow_heading_down"></i></th>
                                 <th>Out<br/><i className="em em-arrow_heading_up"></i></th>
-                                <th>Date<br/><i className="em em-date"></i></th> 
-                                <th>TotalTime<br/><i className="em em-alarm_clock"></i></th>
-                                <th>Feedback<br/><i className="em em-ballot_box_with_check"></i></th>
+                                <th>Date<br/><i className="em em-date d-none d-sm-none d-md-block "></i></th> 
+                                <th>TotalTime<br/><i className="em em-alarm_clock d-none d-sm-none d-md-block "></i></th>
+                                <th>Feedback<br/><i className="em em-ballot_box_with_check d-none d-sm-none d-md-block "></i></th>
                             </tr>
                             {this.state.selectedItems.map((user, i) => <Contact Key={i} onDelete={this.props.onDelete} {...user} ></Contact>)}
                         </tbody>

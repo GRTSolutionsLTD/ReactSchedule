@@ -59,11 +59,11 @@ img {
   margin: 1em auto;
   overflow: hidden;
   width: 800px;
-  position: relative !important; }
+  position: relative; }
 
 table {
   width: 100%;
-  position: relative !important; }
+  position: relative; }
   table td, table th {
     color: #2b686e;
     padding: 10px; }
@@ -167,7 +167,7 @@ table {
   border: none;
   box-shadow: none;
   overflow: visible;
-  position: relative !important; }
+  position: relative; }
 
 /* .table-users {
         border: none;

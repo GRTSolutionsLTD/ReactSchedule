@@ -266,3 +266,9 @@ table {
             
      }
       
+     #calender{
+        @media screen and (max-width: 700px) {
+            display: flex;
+            justify-content: center;            
+        }
+     }

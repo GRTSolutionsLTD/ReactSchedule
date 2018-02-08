@@ -93,12 +93,18 @@ img {
     margin: 1em auto;
     overflow: hidden;
     width: 800px;
-    position: relative !important;
+    position: relative ;
+
+    //@media screen and (max-width: 700px) {
+
+   // }
+
+
 }
 
 table {
     width: 100%;
-    position: relative !important;
+    position: relative;
     td, th {
         color: darken($baseColor, 10%);
         padding: $padding;
@@ -260,7 +266,7 @@ table {
         border: none;
          box-shadow: none;
          overflow: visible;
-         position: relative !important;
+         position: relative ;
              
  
             

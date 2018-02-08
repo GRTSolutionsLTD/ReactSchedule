@@ -1,9 +1,25 @@
+@font-face {
+  font-family: 'NunitoSans-Italic';
+  src: url("https://grth-for-safecharge.portal.azure-api.net/Admin/Orchard.MediaLibrary/fonts/NunitoSans-Italic.ttf") format("truetype"); }
+
+#check-badge{
+  background: transparent;
+  color: black;
+}
+
 body {
   font-family: 'liquid_crystalregular', sans-serif; }
 
 body * {
   box-sizing: border-box; }
-
+  #icon-header{
+    height: 42px;
+    width: 42px;
+    border: transparent;
+    top: 3%;
+    position: absolute;
+    left: 4%;
+  }
 .header {
   /*background-color: #327a81;*/
   color: white;
@@ -13,9 +29,9 @@ body * {
   text-transform: uppercase; }
 
 .navbar-inverse {
-  background-image: -webkit-linear-gradient(top, #0c579f 0, #222 100%); }
+  background-color: black; }
   .navbar-inverse a {
-    color: gray !important; }
+    color: white ; }
 
 .center-wrap {
   position: absolute;
@@ -23,20 +39,63 @@ body * {
   left: calc(50% - 125px);
   width: 250px;
   height: 200px; }
+  @media only screen and (max-width: 768px) {
+    .center-wrap {
+      left: calc(0% - 0px); } }
 
-.center-wrap-left {
-  position: absolute;
-  top: calc(20% - 70px);
-  left: calc(25% - 125px);
-  width: 250px;
-  height: 200px; }
+.home-buttons {
+  width: 98%; }
 
-.center-wrap-right {
+#btn-check-out {
   position: absolute;
-  top: calc(20% - 70px);
-  left: calc(75% - 125px);
-  width: 250px;
-  height: 200px; }
+  width: 13%;
+  height: 17%;
+  top: 45%;
+  left: 13%; }
+  @media only screen and (max-width: 768px) {
+    #btn-check-out {
+      height: 20%;
+      top: 62%;
+      left: 2%; } }
+
+#btn-check-in {
+  position: absolute;
+  width: 13%;
+  height: 17%;
+  top: 45%;
+  left: 66%; }
+  @media only screen and (max-width: 768px) {
+    #btn-check-in {
+      width: 20%;
+      height: 20%;
+      top: 39%;
+      left: 2%; } }
+
+#span-check-out {
+  position: absolute;
+  top: 68%;
+  left: 17.5%; }
+  @media only screen and (max-width: 768px) {
+    #span-check-out {
+      left: 17%;
+      top: 83%; } }
+
+#span-check-in {
+  position: absolute;
+  top: 68%;
+  left: 71%; }
+  @media only screen and (max-width: 768px) {
+    #span-check-in {
+      top: 59%;
+      left: 17%; } }
+
+#btn-schedule {
+  top: 79%;
+  left: 38%; }
+  @media only screen and (max-width: 768px) {
+    #btn-schedule {
+      top: 104%;
+      left: 4%; } }
 
 .button {
   top: 90%;
@@ -44,25 +103,27 @@ body * {
   display: block;
   background: none center center no-repeat;
   background-size: cover;
-  border: 2px solid #2e2e2e;
+  border: 2px solid white;
   text-transform: uppercase;
   letter-spacing: .3rem;
   padding: 20px 15px;
   text-align: center;
   max-width: 270px;
   min-width: 200px;
-  border-color: beige;
   cursor: pointer;
   overflow: hidden;
   -webkit-transition: border 1s cubic-bezier(0.19, 1, 0.22, 1), color 0.6s cubic-bezier(0.19, 1, 0.22, 1);
   transition: border 1s cubic-bezier(0.19, 1, 0.22, 1), color 0.6s cubic-bezier(0.19, 1, 0.22, 1), background 5s cubic-bezier(0.19, 1, 0.22, 1); }
+  @media only screen and (max-width: 768px) {
+    .button {
+      border-color: transparent; } }
 
 #unibutt:disabled {
   color: #cccccc; }
 
 .button a {
   color: #d36363;
-  font-family: 'Varela Round';
+  font-family: 'Nunito Sans', Arial;
   text-decoration: none; }
 
 .button .mask {
@@ -107,12 +168,16 @@ img {
 .table-users {
   top: 50%;
   /*position: absolute;
+    
     border: 1px solid #327a81;*/
   /*border-radius: 10px;
+    
     box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+    
     /*max-width: calc(100% - 2em);*/
   /*margin: 1em auto;*/
   /*height: 150px;
+    
     width: 200px;*/ }
 
 .set-section {
@@ -126,8 +191,20 @@ img {
   top: 10%;
   left: 40%;
   position: absolute;
-  color: #3a1010;
+  color: white;
   font-size: 80px; }
+  @media only screen and (max-width: 768px) {
+    .text {
+      top: 0%;
+      left: 25%;
+      position: absolute;
+      color: steelblue;
+      font-size: 50px; } }
+
+@media only screen and (max-width: 768px) {
+  .react-clock__face {
+    top: -85px;
+    left: -53px; } }
 
 .textright {
   position: relative;
@@ -142,26 +219,29 @@ img {
   top: 150%;
   width: 120px;
   height: 50px;
-  color: red; }
+  color: red;
+  left: calc(75% - 135px); }
 
 .home {
-  font-family: David;
+  font-family: 'Nunito Sans', Arial;
   top: 20%;
   left: 20%;
   position: absolute;
   width: 60%;
   height: 50%;
-  background-color: azure;
-  background-image: -webkit-linear-gradient(top, #0c579f 0, #222 100%);
   border: solid;
   border-color: whitesmoke;
+  background-color: #0e72c75e;
   border-width: 7px; }
+  @media only screen and (max-width: 768px) {
+    .home {
+      background: transparent; } }
 
 .navbar navbar-inverse navbar-fixed-top {
   background-color: aquamarine; }
 
 .number {
-  font-family: David;
+  font-family: 'Nunito Sans', Arial;
   font-size: 70px;
   color: #808080;
   top: 30%;
@@ -293,7 +373,7 @@ table tr:nth-child(2n+1) {
   position: absolute; }
 
 .searchtext {
-  font-family: David;
+  font-family: 'Nunito Sans', Arial;
   font-size: 50px;
   top: 8%;
   right: 60%;
@@ -313,6 +393,7 @@ input[type=text] {
   padding: 12px 20px 12px 40px;
   width: 30%;
   /*-webkit-transition: width 042s ease-in-out;
+    
     transition: width 0.4s ease-in-out;*/ }
 
 .add {
@@ -328,6 +409,11 @@ input[type=text] {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box; }
+
+  .navbar-inverse .navbar-nav>li>a{
+  color: white; 
+  }
+
 
 .sumbit {
   left: 5%;
@@ -347,6 +433,7 @@ input[type=text] {
 
 form {
   /*left:5%;
+    
     position:absolute;*/
   border-radius: 5px;
   background-color: #f2f2f2;
@@ -371,7 +458,10 @@ form {
 ._img {
   background-image: url("./2144.jpg");
   background-attachment: fixed;
-  background-repeat: round; }
+  background-repeat: round;
+  background-size:120%  
+}
+
 
 .welcome {
   text-align: center;
@@ -406,3 +496,10 @@ form {
   text-align: center;
   border-radius: 15px;
   text-shadow: 0 0 3px #fff; }
+  @media only screen and (max-width: 768px) {
+    .clock {
+      width: 80px;
+      height: 80px;
+      top: -85px;
+      left: -53px;
+      display: none; } }

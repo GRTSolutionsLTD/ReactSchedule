@@ -1,0 +1,13 @@
+#AboutUsJunbo{
+    padding-left: 2%;
+    background: transparent
+}
+
+#scheduleIcon{
+    height: 6%;
+    width: 6%;
+    @media only screen and (max-width: 768px) {
+      border: transparent;
+      width: 30%;
+    }
+}

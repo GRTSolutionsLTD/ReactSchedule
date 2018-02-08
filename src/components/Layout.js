@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import {Breadcrumb,Button,Glyphicon,Image} from 'react-bootstrap';
 
 export class Layout extends React.Component {
     constructor(props, context) {
@@ -19,7 +19,7 @@ export class Layout extends React.Component {
         float: 'right',
         margin_top :'5%'
     };
-    
+ 
 
     render() {
         const { location } = this.props;
@@ -28,28 +28,41 @@ export class Layout extends React.Component {
         return (
             <nav className="navbar navbar-inverse navbar-fixed-top" role="navigation" >
                 <div className="container">
-                    <div className="navbar-header">
+                
+                    <div className="navbar-header" >
+                    <Image id="icon-header" src="https://cdn3.iconfinder.com/data/icons/illustricon-tech-ii/512/calendar-512.png" rounded />
                         <button type="button" className="navbar-toggle" onClick={this.toggleCollapse} >
                             <span className="sr-only">Toggle navigation</span>
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
-                        </button>
+                        </button> 
                     </div>
                     <div className={"navbar-collapse " + navClass} id="bs-example-navbar-collapse-1">
+                       
                         <ul className="nav navbar-nav">
-                            <li>
-                                <Link to="/" onClick={this.toggleCollapse}>Home</Link>
+                       
+                             <li>
+                                <Link to="/" onClick={this.toggleCollapse}> <Glyphicon glyph="home" /> Home </Link>
                             </li>
                             <li>
-                                <Link to="/RecordList" onClick={this.toggleCollapse}>Schedule Reports</Link>
+                                <Link to="/RecordList" onClick={this.toggleCollapse}><Glyphicon glyph="list-alt" /> Schedule Reports </Link>
                             </li>
                             <li>
-                                <Link to="/Options" onClick={this.toggleCollapse}>Options</Link>
+                                <Link to="/Options" onClick={this.toggleCollapse}><Glyphicon glyph="wrench" /> Options  </Link>
 
                              </li>
-                        </ul>
+                             <li>
+                                <Link to="/AboutUs" onClick={this.toggleCollapse}><Glyphicon glyph="thumbs-up" /> AboutUs  </Link>
 
+                             </li>
+                             <li>
+                                <Link to="/Help" onClick={this.toggleCollapse}><Glyphicon glyph="thumbs-up" /> Help  </Link>
+
+                             </li>
+
+                        </ul>
+                    
                     </div>
                 </div>
             </nav>
